@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AluCine - Aluguel de Filmes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/wvnYn3yx/Screenshot-2025-05-09-16-31-04-301-com-canva-editor-2-removebg-preview.png" alt="AluCine" style="height: 200px;">
+    <p>O melhor do cinema nacional e internacional!</p>
+  </header>
+  <nav class="nav">
+    <span class="nav-link active" data-target="destaques">Destaques</span>
+    <span class="nav-link" data-target="catalogo">Catálogo</span>
+    <span class="nav-link" data-target="avaliacoes">Avaliações</span>
+  </nav>
+
+  <section id="avaliacoes" class="section"> 
+    <div style="max-width: 600px; margin: auto;">
+      <h2 style="margin-bottom: 20px;">Deixe sua Avaliação</h2>
+      <form id="reviewForm">
+        <input type="text" id="nome" placeholder="Seu nome" required style="width:100%; padding:10px; margin-bottom:10px;">
+        <select id="titulo_filme" required style="width:100%; padding:10px; margin-bottom:10px;">
+          <option value="">Título do filme</option>
+          <option value="A Entidade">A Entidade</option>
+          <option value="A Freira">A Freira</option>
+          <option value="A Órfã">A Órfã</option>
+          <option value="Adoráveis Mulheres">Adoráveis Mulheres</option>
+          <option value="Ainda Estou Aqui">Ainda Estou Aqui</option>
+          <option value="Alerta Vermelho">Alerta Vermelho</option>
+          <option value="As Branquelas">As Branquelas</option>
+          <option value="Até que a sorte nos separe">Até que a sorte nos separe</option>
+          <option value="Até que a sorte nos separe 2">Até que a sorte nos separe 2</option>
+          <option value="Barbie e o Portal Secreto">Barbie e o Portal Secreto</option>
+          <option value="Cisne Negro">Cisne Negro</option>
+          <option value="Como eu era antes de você">Como eu era antes de você</option>
+          <option value="Como Treinar Seu Dragão">Como Treinar Seu Dragão</option>
+          <option value="Conclave">Conclave</option>
+          <option value="Curtindo a Vida Adoidado">Curtindo a Vida Adoidado</option>
+          <option value="Enrolados">Enrolados</option>
+          <option value="Esposa de Mentirinha">Esposa de Mentirinha</option>
+          <option value="Flow">Flow</option>
+          <option value="Gente Grande">Gente Grande</option>
+          <option value="Hereditário">Hereditário</option>
+          <option value="Homem com H">Homem com H</option>
+          <option value="Invocação do Mal 2">Invocação do Mal 2</option>
+          <option value="Liga da Justiça">Liga da Justiça</option>
+          <option value="Madagascar">Madagascar</option>
+          <option value="O Bom Dinossauro">O Bom Dinossauro</option>
+          <option value="O exorcista">O exorcista</option>
+          <option value="O massacre da serra elétrica">O massacre da serra elétrica</option>
+          <option value="O Shaolin do Sertão">O Shaolin do Sertão</option>
+          <option value="O Silêncio dos Inocentes">O Silêncio dos Inocentes</option>
+          <option value="Os parças">Os parças</option>
+          <option value="Que horas ela volta?">Que horas ela volta?</option>
+          <option value="Sonic: O Filme">Sonic: O Filme</option>
+          <option value="Tinker Bell">Tinker Bell</option>
+          <option value="Tropa de Elite">Tropa de Elite</option>
+          <option value="Um espião e meio">Um espião e meio</option>
+          <option value="Uncharted">Uncharted</option>
+          <option value="Velozes e Furiosos 7">Velozes e Furiosos 7</option>
+          <option value="Velozes e Furiosos 8">Velozes e Furiosos 8</option>
+          <option value="Vidas Passadas">Vidas Passadas</option>
+          <option value="Vingadores: Ultimato">Vingadores: Ultimato</option>
+        </select>
+        <select id="nota" required style="width:100%; padding:10px; margin-bottom:10px;">
+          <option value="">Nota</option>
+          <option value="★✰✰✰✰">1 - Péssimo</option>
+          <option value="★★✰✰✰">2 - Ruim</option>
+          <option value="★★★✰✰">3 - Regular</option>
+          <option value="★★★★✰">4 - Bom</option>
+          <option value="★★★★★">5 - Excelente</option>
+        </select>
+        <textarea id="comentario" placeholder="Seu comentário" required style="width:100%; padding:10px; margin-bottom:10px;"></textarea>
+        <button type="submit" style="padding:10px 20px; background:#6542ff; color:#fff; border:none; border-radius:5px;">Enviar Avaliação</button>
+      </form>
+  
+      <h3 style="margin-top: 40px;">Avaliações dos Clientes</h3>
+      <div id="avaliacoesContainer" style="margin-top: 20px;"></div>
+    </div>
+  </section>  
+
+  <section id="destaques" class="section active">
+    <div class="container">
+      <div class="card">
+        <img src="https://s2-oglobo.glbimg.com/Ya4EHRVRdbhDRBEmuETyhadG_Ro=/1600x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2025/t/P/9m06SoSJaBOGfwTfpwnw/ish-1-sheet-portugal.jpg" alt="Ainda Estou Aqui">
+        <h2>Ainda Estou Aqui</h2>
+        <p>Eunice enfrenta a violência do regime militar depois da prisão e do desaparecimento do marido, o deputado Rubens Paiva, no início da década de 1970. Uma história sobre a força do povo brasileiro.</p>
+        <a href="https://youtu.be/_NzqP0jmk3o?si=_uyZFEeTN_xJ5UBA" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Ainda Estou Aqui" data-price="19.80">Alugar (R$ 19,80)</a>
+      </div>
+
+      <div class="card">
+        <img src="https://api.claquete.com.br/uploads/poster/14905_medio.jpg" alt="Homem com H">
+        <h2>Homem com H</h2>
+        <p>Ney Matogrosso, um rapaz de origem humilde apaixonado pela natureza, que se liberta das opressões e figuras de autoridade, quebra preconceitos e se torna um dos maiores artistas de sua geração.</p>
+        <a href="https://youtu.be/Zg-Cmj5wXnw?si=QFXBynyMG8O4ri47" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Homem com H" data-price="27.43">Alugar (R$ 27,43)</a>
+      </div>
+
+      <div class="card">
+        <img src="https://br.web.img3.acsta.net/pictures/15/03/09/20/43/047501.jpg" alt="O massacre da serra elétrica">
+        <h2>O Massacre da Serra Elétrica</h2>
+        <p>Depois de um desvio para a antiga casa de fazenda de seus parentes, um grupo de amigos descobre uma família de canibais morando na assustadora residência ao lado.</p>
+        <a href="https://youtu.be/j0x2MtFNbVQ?si=MQiFm7MVHcVnsdkb" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="O Massacre da Serra Elétrica" data-price="15.78">Alugar (R$ 15,78)</a>
+      </div>
+
+      <div class="card">
+        <img src="https://cinema.maringa.com/storage/cinema/pCJfj2-capa-flow.webp" alt="Flow">
+        <h2>Flow</h2>
+        <p>Um gato encontra refúgio em um barco e se envolve em diversas confusões após decidir roubar um peixe que estava sendo disputado por dois cachorros.</p>
+        <a href="https://youtu.be/82WW9dVbglI?si=QCBx2Lr-Vbl8pQ1x" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Flow" data-price="17.60">Alugar (R$ 17,60)</a>
+      </div>
+
+      <div class="card">
+        <img src="https://uploads.alternativanerd.com.br/wp-content/uploads/2024/11/AN_Como-Treinar-o-Seu-Dragao-Cartaz.jpg" alt="Como Treinar o Seu Dragão">
+        <h2>Como Treinar o Seu Dragão</h2>
+        <p>Agora na versão live-action do clássico animado. Soluço, um jovem viking, faz amizade com o dragão Banguela e desafia tudo o que sua aldeia acredita sobre essas criaturas.</p>
+        <a href="https://youtu.be/pPeyZiQIlOg?si=keenI_c9Oy3bNgz2" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Como Treinar o Seu Dragão" data-price="28.67">Alugar (R$ 28,67)</a>
+      </div>
+
+      <div class="card">
+        <img src="https://cinepop.com.br/wp-content/uploads/2021/07/as-branquelas-cartaz.jpg" alt="As branquelas">
+        <h2>As Branquelas</h2>
+        <p>Dois agentes do FBI se disfarçam como socialites para impedir um sequestro, mas acabam se metendo em muitas confusões e situações engraçadas.</p>
+        <a href="https://youtu.be/seoJIPLLWp0?si=F4yPYN1K_9D_7wZf" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="As Branquelas" data-price="12.77">Alugar (R$ 12,77)</a>
+      </div>
+
+      <div class="card">
+        <img src="https://96fmbauru.com.br/wp-content/uploads/2025/04/wWn78TMMw8yOdr5sG0Yl9v4saoA-scaled.jpg" alt="Conclave">
+        <h2>Conclave</h2>
+        <p>O papa está morto e agora é preciso reunir o colégio de cardeais para decidir quem será o novo pontífice. Um dos eventos mais secretos do mundo: a escolha de um novo Papa.</p>
+        <a href="https://youtu.be/lJ3zOSDIj7o?si=ZQbHOixO-0mav4Gd" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Conclave" data-price="18.79">Alugar (R$ 18,79)</a>
+      </div>
+
+      <div class="card">
+        <img src="https://image.tmdb.org/t/p/original/mI1Ktgg7LuhwAhUgke4rHUxlDUr.jpg" alt="Vingadores: Ultimato">  
+        <h2>Vingadores: Ultimato</h2>
+        <p>Quando eventos devastadores eliminam metade da população mundial e dividem suas fileiras, os heróis restantes lutam para reverter os danos causados por Thanos e restaurar a ordem no universo.</p>
+        <a href="https://youtu.be/PgrmbRID0eY?si=32VqIm6wniy5mFeJ" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Vingadores: Ultimato" data-price="21.59">Alugar (R$ 21,59)</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo" class="section">
+    <nav class="catalog-nav">
+      <ul>
+        <li class="catalog-item active" data-genre="all">Todos</li>
+        <li class="catalog-item" data-genre="acao">Ação</li>
+        <li class="catalog-item" data-genre="comedia">Comédia</li>
+        <li class="catalog-item" data-genre="drama">Drama</li>
+        <li class="catalog-item" data-genre="infantil">Infantil</li>
+        <li class="catalog-item" data-genre="terror">Terror</li>
+      </ul>
+    </nav>
+    
+    <div class="container" id="catalogueGrid">
+      <div class="card" data-genre="acao">
+        <img src="https://image.tmdb.org/t/p/original/mI1Ktgg7LuhwAhUgke4rHUxlDUr.jpg" alt="Vingadores: Ultimato">  
+        <h2>Vingadores: Ultimato</h2>
+        <p>Quando eventos devastadores eliminam metade da população mundial e dividem suas fileiras, os heróis restantes lutam para reverter os danos causados por Thanos e restaurar a ordem no universo.</p>
+        <a href="https://youtu.be/PgrmbRID0eY?si=32VqIm6wniy5mFeJ" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Vingadores: Ultimato" data-price="21.59">Alugar (R$ 21,59)</a>
+      </div>
+      
+      <div class="card" data-genre="acao">
+        <img src="https://image.tmdb.org/t/p/original/atl4a9VFVP7JYvk4GeSgqhLOfjC.jpg" alt="Tropa de elite">
+        <h2>Tropa de Elite</h2>
+        <p>Nascimento, capitão da tropa de elite do Rio de Janeiro, é escolhido para chefiar uma das equipes cuja missão é apaziguar o Morro do Turano. Ele precisa cumprir as ordens enquanto procura por um substituto para ficar em seu lugar.</p>
+        <a href="https://youtu.be/uZBiNJQxtGw?si=mN_GoAVAHdpe6_XJ" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Tropa de Elite" data-price="12.29">Alugar (R$ 12,29)</a>
+      </div>
+      
+      <div class="card" data-genre="acao">
+        <img src="https://assets-prd.ignimgs.com/2022/01/13/uncharted-poster-full-1642086040683.jpg" alt="Uncharted">
+        <h2>Uncharted</h2>
+        <p>Nathan Drake e seu parceiro canastrão Victor Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado e rastreiam pistas que podem levar ao irmão perdido de Nathan.</p>
+        <a href="https://youtu.be/eHp3MbsCbMg?si=CBx2nF86KOBEIgnM" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Uncharted" data-price="18.78">Alugar (R$ 18,78)</a>
+      </div>
+
+      <div class="card" data-genre="acao">
+        <img src="https://www.blogueirinho.com/wp-content/uploads/2024/02/Cine1-16.jpg" alt="Alerta Vermelho">
+        <h2>Alerta Vermelho</h2>
+        <p>O agente do FBI John Hartley se vê diante de um assalto ousado e é forçado a se aliar ao maior ladrão de arte da história, Nolan Booth, para capturar a ladra de arte mais procurada do mundo, Sarah Black.</p>
+        <a href="https://youtu.be/5JQuYpBZarc?si=KYKLxQTa8vujYv_H" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Alerta Vermelho" data-price="23.95">Alugar (R$ 23,95)</a>
+      </div>
+
+      <div class="card" data-genre="acao">
+        <img src="https://br.web.img2.acsta.net/pictures/16/03/17/23/42/509402.jpg" alt="Um espião e meio">
+        <h2>Um espião e meio</h2>
+        <p>Antes de se tornar um agente da CIA, Bob sofria bullying na época do colégio. Na agência, ele precisa resolver um caso ultrassecreto e recorre a um antigo colega, popular nos tempos da escola, hoje contador.</p>
+        <a href="https://youtu.be/xU1wWctkh5I?si=PxyFRz_ARRnjpQL0" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Um espião e meio" data-price="13.65">Alugar (R$ 13,65)</a>
+      </div>
+
+      <div class="card" data-genre="acao">
+        <img src="https://www.cafecomfilme.com.br/media/k2/items/cache/7f0421d49c38eb9e220d19d8f7439561_XL.jpg?t=20210320_184445" alt="Liga da Justiça">
+        <h2>Liga da Justiça</h2>
+        <p>Bruce Wayne busca a ajuda de sua nova aliada, Diana Prince, para encarar uma ameaça ao planeta. Juntos, Batman e Mulher-Maravilha trabalham para encontrar e recrutar um time de metahumanos para encarar essa ameaça recém-desperta.</p>
+        <a href="https://youtu.be/BZUm2lpPoKM?si=7psSrkQ_Zd8xfWG3" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Liga da Justiça" data-price="13.65">Alugar (R$ 13,65)</a>
+      </div>
+
+      <div class="card" data-genre="acao">
+        <img src="https://br.web.img3.acsta.net/pictures/17/03/27/09/49/121118.jpg" alt="Velozes e furiosos 8">
+        <h2>Velozes e furiosos 8</h2>
+        <p>A adrenalina do passado volta com tudo quando uma mulher misteriosa obriga Dom a retornar ao mundo do crime e da velocidade.</p>
+        <a href="https://youtu.be/KvSlvtPnZTo?si=dSUSNVnQAtbfFXjc" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Velozes e furiosos 8" data-price="19.88">Alugar (R$ 19,88)</a>
+      </div>
+
+      <div class="card" data-genre="acao">
+        <img src="https://images.justwatch.com/poster/310008111/s718/velozes-e-furiosos-7.jpg" alt="Velozes e furiosos 7">
+        <h2>Velozes e furiosos 7</h2>
+        <p>Um agente oferece ajuda para cuidar de Shaw em troca do resgate de um "hacker". Dessa vez, não se trata apenas de velocidade: a corrida é pela sobrevivência.</p>
+        <a href="https://youtu.be/hujU0dw6Erk?si=sg2pWf3I9vL4fa4_" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Velozes e furiosos 7" data-price="21.15">Alugar (R$ 21,15)</a>
+      </div>
+
+      <div class="card" data-genre="terror">
+        <img src="https://image.tmdb.org/t/p/original/wWiFt7jdwJ0rlaGDnVAiq257gPk.jpg" alt="Invocação do Mal 2">
+        <h2>Invocação do Mal 2</h2>
+        <p>Os investigadores paranormais Lorraine e Ed Warren viajam para Londres para investigar o caso de uma mãe solteira e seus quatro filhos que são atormentados por uma entidade paranormal.</p>
+        <a href="https://youtu.be/YBffSK8p9Ro?si=Ad4UUVXoKbTRfWuF" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="https://youtu.be/YBffSK8p9Ro?si=Ad4UUVXoKbTRfWuF" target="_blank" class="alugar-button">Alugar (R$ 18,44)</a>
+      </div>
+
+            <div class="card" data-genre="terror">
+        <img src="https://br.web.img3.acsta.net/pictures/15/03/09/20/43/047501.jpg" alt="O massacre da serra elétrica">
+        <h2>O Massacre da Serra Elétrica</h2>
+        <p>Depois de um desvio para a antiga casa de fazenda de seus parentes, um grupo de amigos descobre uma família de canibais morando na assustadora residência ao lado.</p>
+        <a href="https://youtu.be/j0x2MtFNbVQ?si=AQtpdR_5QIPtH-MG" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="O Massacre da Serra Elétrica" data-price="15.78">Alugar (R$ 15,78)</a>
+      </div>
+
+      <div class="card" data-genre="terror">
+        <img src="https://lozengelis.files.wordpress.com/2021/07/silencio-entreter-se.jpg" alt="O Silêncio dos Inocentes">
+        <h2>O Silêncio dos Inocentes</h2>
+        <p>Uma jovem deve receber a ajuda de um assassino canibal manipulador e preso para ajudar a capturar outro assassino em série, um louco que ataca suas vítimas.</p>
+        <a href="https://youtu.be/8Qsq6DrYDxE?si=QFt4rVLdGz-Zlf12" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="O Silêncio dos Inocentes" data-price="13.50">Alugar (R$ 13,50)</a>
+      </div>
+
+      <div class="card" data-genre="terror">
+        <img src="https://www.oficialhostgeek.com.br/wp-content/uploads/2020/09/zzzz-8-scaled.jpg" alt="O Exorcista">
+        <h2>O Exorcista</h2>
+        <p>Uma atriz vai gradativamente tomando consciência de que a sua filha de doze anos está tendo um comportamento completamente assustador.</p>
+        <a href="https://youtu.be/BU2eYAO31Cc?si=-H5NnYiv-wwPNGF9" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="O Exorcista" data-price="19.40">Alugar (R$ 19,40)</a>
+      </div>
+
+      <div class="card" data-genre="terror">
+        <img src="https://br.web.img3.acsta.net/pictures/18/06/14/13/11/1751062.jpg" alt="Hereditário">
+        <h2>Hereditário</h2>
+        <p>Após a morte da avó, a família Graham começa a desvendar algumas coisas. Mesmo após a partida da sua, ela permanece como uma sombra sobre a família.</p>
+        <a href="https://youtu.be/Ui13PlmyZhQ?si=qqX90xgNNFjrV5pU" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Hereditário" data-price="15.69">Alugar (R$ 15,69)</a>
+      </div>
+
+      <div class="card" data-genre="terror">
+        <img src="https://br.web.img2.acsta.net/medias/nmedia/18/87/29/90/19874059.jpg" alt="A Órfã">
+        <h2>A Órfã</h2>
+        <p>Uma série de eventos alarmantes faz uma mulher acreditar que algum mal esteja por trás do rosto angelical da filha de nove anos, recentemente adotada.</p>
+        <a href="https://youtu.be/cB5zcyckRzc?si=SKZXUv4hgHL1r_Lg" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="A Órfã" data-price="14.99">Alugar (R$ 14,99)</a>
+      </div>
+
+      <div class="card" data-genre="terror">
+        <img src="https://www.cinebelasartes.com.br/wp-content/uploads/2018/09/a-freira-cartaz-min.jpg" alt="A Freira">
+        <h2>A Freira</h2>
+        <p>Uma freira comete suicídio. Para investigar o caso, o Vaticano envia um padre assombrado e uma noviça prestes a se tornar freira.</p>
+        <a href="https://youtu.be/lqiQKemWZhU?si=igBDuDZOkqx3egR7" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="A Freira" data-price="16.29">Alugar (R$ 16,29)</a>
+      </div>
+
+      <div class="card" data-genre="terror">
+        <img src="https://br.web.img2.acsta.net/medias/nmedia/18/91/31/38/20277419.jpg" alt="A Entidade">
+        <h2>A Entidade</h2>
+        <p>Um autor de romances criminais encontra uma caixa com filmagens antigas de crimes horripilantes, que parecem ter sido cometidos por um assassino em série.</p>
+        <a href="https://youtu.be/H9iEgzwg3ws?si=7X8EjaI3JBRJ9mVG" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="A Entidade" data-price="16.29">Alugar (R$ 16,29)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://cinema.maringa.com/storage/cinema/pCJfj2-capa-flow.webp" alt="Flow">
+        <h2>Flow</h2>
+        <p>Um gato encontra refúgio em um barco e se envolve em diversas confusões após decidir roubar um peixe que estava sendo disputado por dois cachorros.</p>
+        <a href="https://youtu.be/82WW9dVbglI?si=QCBx2Lr-Vbl8pQ1x" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Flow" data-price="17.60">Alugar (R$ 17,60)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://images.justwatch.com/poster/177209956/s718/sonic-o-filme.jpg" alt="Sonic: O Filme">
+        <h2>Sonic: O Filme</h2>
+        <p>Sonic se junta com os seus amigos para derrotar o terrível Doutor Eggman, um cientista que planeja dominar o mundo, e o Doutor Robotnik, que aprisiona animais inocentes em robôs.</p>
+        <a href="https://youtu.be/7_ybmGsUKFI?si=XL4YOMoOheg-4flU" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Sonic: O Filme" data-price="14.70">Alugar (R$ 14,70)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://br.web.img3.acsta.net/pictures/15/10/15/22/24/429658.jpg" alt="O Bom Dinossauro">
+        <h2>O Bom Dinossauro</h2>
+        <p>Depois que um evento traumático, o dinossauro Arlo parte em uma jornada. No caminho de volta para casa, acaba ganhando um companheiro improvável: um menino humano chamado Spot.</p>
+        <a href="https://youtu.be/vxevns18u0U?si=6qan-NmD88oj6N0c" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="O Bom Dinossauro" data-price="14.70">Alugar (R$ 14,70)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://i.pinimg.com/originals/eb/fe/c2/ebfec28e2fb3cfc36ab354cf97a3955a.jpg" alt="Madagascar">
+        <h2>Madagascar</h2>
+        <p>Conta a história de quatro animais do zoológico de Nova York que, após um acidente, vão parar na ilha de Madagascar e vivem aventuras na natureza selvagem.</p>
+        <a href="https://youtu.be/fq5zU9T_Hl4?si=fvgQ1pLiw_51i4Xe" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Madagascar" data-price="16.99">Alugar (R$ 16,99)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://uploads.alternativanerd.com.br/wp-content/uploads/2024/11/AN_Como-Treinar-o-Seu-Dragao-Cartaz.jpg" alt="Como Treinar o Seu Dragão">
+        <h2>Como Treinar o Seu Dragão</h2>
+        <p>Agora na versão live-action do clássico animado. Soluço, um jovem viking, faz amizade com o dragão Banguela e desafia tudo o que sua aldeia acredita sobre essas criaturas.</p>
+        <a href="https://youtu.be/pPeyZiQIlOg?si=keenI_c9Oy3bNgz2" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Como Treinar o Seu Dragão" data-price="28.67">Alugar (R$ 28,67)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://br.web.img3.acsta.net/pictures/14/08/19/22/54/358712.jpg" alt="Barbie e o Portal Secreto">
+        <h2>Barbie e o Portal Secreto</h2>
+        <p>A princesa Alexa descobre um portal mágico que a leva a um reino encantado. Lá, ela ganha poderes e, junto com novas amigas, luta para salvar o mundo mágico das mãos de uma vilã ambiciosa.</p>
+        <a href="https://youtu.be/1AZebzecbkU?si=Gpp6vyQuYEgBfPg-" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Barbie e o Portal Secreto" data-price="16.99">Alugar (R$ 16,99)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://play-lh.googleusercontent.com/9ru5bI_EcT_hEqfwOM34vwpY0dfuzIbbwUpoPIGhF8eMBD416KJ32dftTK6apmnD5Egx=w240-h480-rw" alt="Tinker Bell">
+        <h2>Tinker Bell</h2>
+        <p>Sininho é transportada pelo vento para a Terra do Nunca e aprende que, como uma fada, seu trabalho é consertar coisas quebradas.</p>
+        <a href="https://youtu.be/HbfPWqO-km0?si=DhtcKKn_siH-d7pQ" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Tinker Bell" data-price="24.15">Alugar (R$ 24,15)</a>
+      </div>
+
+      <div class="card" data-genre="infantil">
+        <img src="https://m.media-amazon.com/images/I/A1lwzdAFrmL.AC_UF1000,1000_QL80.jpg" alt="Enrolados">
+        <h2>Enrolados</h2>
+        <p>Flynn Rider se esconde em uma torre e acaba prisioneiro de Rapunzel, residente de longa data do local. Dona de cabelos dourados e mágicos, ela está trancada há anos e deseja desesperadamente a liberdade.</p>
+        <a href="https://youtu.be/MXCqOhoO8mI?si=w25G_GxHRVQ2VAxh" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Enrolados" data-price="25.99">Alugar (R$ 25,99)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="https://cinepop.com.br/wp-content/uploads/2021/07/as-branquelas-cartaz.jpg" alt="As branquelas">
+        <h2>As Branquelas</h2>
+        <p>Dois agentes do FBI se disfarçam como socialites para impedir um sequestro, mas acabam se metendo em muitas confusões e situações engraçadas.</p>
+        <a href="https://youtu.be/seoJIPLLWp0?si=zrxLXMrB9krm7Ok8" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="As Branquelas" data-price="12.77">Alugar (R$ 12,77)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="https://www.oficialhostgeek.com.br/wp-content/uploads/2020/08/zzzz-33-scaled.jpg" alt="Curtindo a Vida Adoidado">
+        <h2>Curtindo a Vida Adoidado</h2>
+        <p>Um estudante de ensino médio carismático e inventivo opta por faltar às aulas para desfrutar de um dia repleto de aventuras em Chicago, acompanhado de sua namorada e seu melhor amigo.</p>
+        <a href="https://youtu.be/0ZDbKhkLxTs?si=47yCBVH1_zR-cfS5" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Curtindo a Vida Adoidado" data-price="27.80">Alugar (R$ 27,80)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="https://m.media-amazon.com/images/S/pv-target-images/9e6f2a51e4f138a2cbe7901b4355290fd7cc1edac259f07a41ed6d15968e1be3.jpg" alt="O Shaolin do Sertão">
+        <h2>O Shaolin do Sertão</h2>
+        <p>Aluízio Li é obcecado por filmes de artes marciais. Morando no interior do Ceará, ele vê seu mundo lúdico e inocente em xeque quando um lutador profissional aposentado resolve desafiar todos os valentões da cidade.</p>
+        <a href="https://youtu.be/XuzSIm3ZLXU?si=L_3jxg5uyMJFbsIE" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="O Shaolin do Sertão" data-price="19.59">Alugar (R$ 19,59)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="https://pics.filmaffinity.com/ate_que_a_sorte_nos_separe-999695379-large.jpg" alt="Até que a sorte nos separe">
+        <h2>Até que a sorte nos separe</h2>
+        <p>Tino tem sua rotina transformada ao ganhar na loteria, gastando todo o dinheiro com uma vida de ostentação. Ao descobrir que está falido, é obrigado a aceitar a ajuda de seu vizinho, um consultor financeiro e extremamente econômico.</p>
+        <a href="https://youtu.be/dAnzuTb-A8k?si=cxQk6kFGsOuAQq3U" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Até que a sorte nos separe" data-price="19.59">Alugar (R$ 19,59)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="https://images.justwatch.com/poster/193315959/s718/ate-que-a-sorte-nos-separe-2.jpg" alt="Até que a sorte nos separe 2">
+        <h2>Até que a sorte nos separe 2</h2>
+        <p>Tino e Jane são salvos da falência pela inesperada herança do Tio Olavinho. O problema é que o testamento traz um pedido incomum: o ricaço deseja que suas cinzas sejam lançadas no Grand Canyon.</p>
+        <a href="https://youtu.be/Uh2Y84P4ic0?si=pc2RkKlBWbzfiQQN" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Até que a sorte nos separe 2" data-price="19.59">Alugar (R$ 19,59)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/9/9e/Just_Go_with_it_P%C3%B4ster.jpg" alt="Esposa de Mentirinha">
+        <h2>Esposa de Mentirinha</h2>
+        <p>Danny tem sua amiga Katherine, mãe solteira de um casal, como fiel escudeira. Quando conhece a jovem Palmer e a paixão toma conta de ambos, ele inventa, para tentar conquistá-la, que é marido de Katherine, pai das crianças e que vai se separar.</p>
+        <a href="https://youtu.be/fpj7i2CPt8M?si=BDOxPv8DAe9y_vRa" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Esposa de Mentirinha" data-price="16.99">Alugar (R$ 16,99)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="https://images.justwatch.com/poster/187459209/s718/os-parcas.jpg" alt="Os parças">
+        <h2>Os parças</h2>
+        <p>Um grupo de amigos é obrigado a participar de um golpe: montar uma agência de casamentos para produzir a festa da filha do maior contrabandista da rua 25 de Março, o temido Vacário.</p>
+        <a href="https://youtu.be/FUlEV4tzzQ8?si=Y7VO1_aSCp9sZYfT" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Os parças" data-price="16.99">Alugar (R$ 16,99)</a>
+      </div>
+
+      <div class="card" data-genre="comedia">
+        <img src="http://br.web.img3.acsta.net/c_210_280/pictures/210/299/21029996_20130821205722213.jpg" alt="Gente Grande">
+        <h2>Gente Grande</h2>
+        <p>Velhos amigos se reunem onde celebraram um campeonato anos atrás. Acompanhados de suas famílias, eles descobrem que idade não significa o mesmo que maturidade.</p>
+        <a href="https://youtu.be/HKVve_VSz58?si=dtLRi5AyO2Yp7T52" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Gente Grande" data-price="13.89">Alugar (R$ 13,89)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://image.tmdb.org/t/p/original/knPu15l5x1Xg1OUPJ8FPcpgICVx.jpg" alt="Cisne Negro">
+        <h2>Cisne Negro</h2>
+        <p>Nina Sayers, uma bailarina dedicada que sonha em ser a estrela do balé "O Lago dos Cisnes". Ao competir pelo papel do Cisne Negro, ela enfrenta a pressão de se transformar e explorar seu lado mais sombrio.</p>
+        <a href="https://youtu.be/dG91B3hHyY4" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Cisne Negro" data-price="24.99">Alugar (R$ 24,99)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://api.claquete.com.br/uploads/poster/14905_medio.jpg" alt="Homem com H">
+        <h2>Homem com H</h2>
+        <p>A história de Ney Matogrosso, um rapaz de origem humilde que se liberta das opressões e figuras de autoridade, quebra preconceitos e se torna um dos artistas mais influentes de sua geração.</p>
+        <a href="https://youtu.be/Zg-Cmj5wXnw?si=QFXBynyMG8O4ri47" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Homem com H" data-price="27.43">Alugar (R$ 27,43)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://www.cafecomfilme.com.br/media/k2/items/cache/f2851e884400cd8e353fa0a2234a2e66_XL.jpg?t=20201218_041928" alt="Adoráveis Mulheres">
+        <h2>Adoráveis Mulheres</h2>
+        <p>As irmãs Jo, Beth, Meg e Amy amadurecem na virada da adolescência para a vida adulta enquanto os Estados Unidos atravessam a Guerra Civil.</p>
+        <a href="https://youtu.be/7nc1GE_hnLs?si=Vp2n2ItOyz-wSnS9" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Adoráveis Mulheres" data-price="19.89">Alugar (R$ 19,89)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://conteudo.imguol.com.br/c/entretenimento/c4/2015/08/25/poster-de-que-horas-ela-volta-1440481894769_768x1137.jpg" alt="Que horas ela volta?">
+        <h2>Que horas ela volta?</h2>
+        <p>Val é obrigada a deixar a filha, Jéssica, e passa os anos seguintes trabalhando como babá do menino Fabinho em São Paulo.</p>
+        <a href="https://youtu.be/rHNARG8Mmhw?si=cT2TNB1iGdPr9xYr" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Que horas ela volta?" data-price="19.90">Alugar (R$ 19,90)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://96fmbauru.com.br/wp-content/uploads/2025/04/wWn78TMMw8yOdr5sG0Yl9v4saoA-scaled.jpg" alt="Conclave">
+        <h2>Conclave</h2>
+        <p>O papa está morto e agora é preciso reunir o colégio de cardeais para decidir quem será o novo pontífice. Um dos eventos mais secretos do mundo: a escolha de um novo Papa.</p>
+        <a href="https://youtu.be/lJ3zOSDIj7o?si=ZQbHOixO-0mav4Gd" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Conclave" data-price="18.79">Alugar (R$ 18,79)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://br.web.img3.acsta.net/pictures/24/01/23/14/59/1144641.png" alt="Vidas Passadas">
+        <h2>Vidas Passadas</h2>
+        <p>Dois amigos de infância com uma conexão profunda, mas que acabam se separando quando a família de Nora decide sair da Coréia do Sul e se mudar. Vinte anos depois, os dois se reencontram.</p>
+        <a href="https://youtu.be/pK73iGzO6jE?si=hNQFvRbl3KY9f2hv" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Vidas Passadas" data-price="16.89">Alugar (R$ 16,89)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://br.web.img2.acsta.net/pictures/16/02/03/19/11/303307.jpg" alt="Como eu era antes de você">
+        <h2>Como eu era antes de você</h2>
+        <p>De origem modesta e sem grandes aspirações, a peculiar Louisa Clark é contratada para ser cuidadora de Will, um jovem tetraplégico depressivo e cínico.</p>
+        <a href="https://youtu.be/PnqUs3xiAVI?si=VwqV78Fjc44FhWp6" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Como eu era antes de você" data-price="14.79">Alugar (R$ 14,79)</a>
+      </div>
+
+      <div class="card" data-genre="drama">
+        <img src="https://s2-oglobo.glbimg.com/Ya4EHRVRdbhDRBEmuETyhadG_Ro=/1600x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2025/t/P/9m06SoSJaBOGfwTfpwnw/ish-1-sheet-portugal.jpg" alt="Ainda Estou Aqui">
+        <h2>Ainda Estou Aqui</h2>
+        <p>Eunice enfrenta a violência do regime militar depois da prisão e do desaparecimento do marido, o deputado Rubens Paiva, no início da década de 1970. Uma história sobre a força do povo brasileiro.</p>
+        <a href="https://youtu.be/_NzqP0jmk3o?si=_uyZFEeTN_xJ5UBA" target="_blank" class="trailer-button">Ver Trailer</a>
+        <a href="#" class="alugar-button" data-title="Ainda Estou Aqui" data-price="19.80">Alugar (R$ 19,80)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de Aluguel -->
+  <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div id="purchaseForm">
+        <div class="form-group">
+          <label for="userEmail">Seu e-mail:</label>
+          <input type="email" id="userEmail" placeholder="exemplo@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="rentalDays">Duração do aluguel:</label>
+          <select id="rentalDays"></select>
+        </div>
+        <button id="confirmRental" class="rental-btn">Confirmar Aluguel</button>
+      </div>
+      <div id="successMessage" class="success-message"></div>
+    </div>
+  </div>
+
+  <footer style="background-color: #0a005f; color: white; text-align: center; padding: 20px; margin-top: 40px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-bottom: 20px;">
+        <div style="margin: 10px;">
+          <h3 style="color: white;">Sobre nós</h3>
+          <p style="font-size: 0.9rem;">AluCine - O melhor do cinema nacional e internacional!</p>
+        </div>
+        <div style="margin: 10px;">
+          <h3 style="color: white;">Contato</h3>
+          <p style="font-size: 0.9rem;">contato@alucine.com.br<br>(11) 1234-5678</p>
+        </div>
+        <div style="margin: 10px;">
+          <h3 style="color: white;">Redes Sociais</h3>
+          <div style="display: flex; justify-content: center; gap: 15px;">
+            <a href="#" style="color: white; text-decoration: none;">Facebook</a>
+            <a href="#" style="color: white; text-decoration: none;">Instagram</a>
+            <a href="#" style="color: white; text-decoration: none;">Twitter</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+        <p style="font-size: 0.8rem;">© 2025 AluCine - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navegação entre seções
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(link.dataset.target).classList.add('active');
+      });
+    });
+
+    // Filtro do catálogo
+    document.querySelectorAll('.catalog-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.catalog-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const genre = item.dataset.genre;
+        document.querySelectorAll('#catalogueGrid .card').forEach(card => {
+          card.style.display = (genre === 'all' || card.dataset.genre === genre) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Sistema de avaliações
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      console.log("Tentando enviar avaliação...");
+
+      const nome = document.getElementById('nome').value.trim();
+      const título_do_filme = document.getElementById('titulo_filme').value.trim(); 
+      const nota = document.getElementById('nota').value;
+      const comentario = document.getElementById('comentario').value.trim();
+
+      console.log("Valores:", {nome, título_do_filme, nota, comentario});
+
+      if (!nome || !título_do_filme || !nota || !comentario) {
+        alert("Por favor, preencha todos os campos!");
+        return;
+      }
+
+      const novaAvaliacao = document.createElement('div');
+      novaAvaliacao.className = 'avaliacao-item'; 
+      novaAvaliacao.innerHTML = `
+        <strong>${nome} <br> Título do filme: ${título_do_filme} <br> Nota: ${nota} <br></strong> 
+        <p>${comentario}</p>
+      `;
+
+      document.getElementById('avaliacoesContainer').appendChild(novaAvaliacao);
+      document.getElementById('reviewForm').reset();
+      
+      console.log("Avaliação adicionada com sucesso!");
+    });
+
+    // Modal de aluguel
+    let currentMovie = null;
+
+    document.querySelectorAll('.alugar-button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        currentMovie = this;
+        
+        const movieTitle = this.dataset.title;
+        const basePrice = parseFloat(this.dataset.price);
+        
+        document.getElementById('modalTitle').innerHTML = `
+          Alugar: ${movieTitle}<br>
+          <small>Preço base: R$ ${basePrice.toFixed(2).replace('.', ',')}</small>
+        `;
+        
+        const rentalDays = document.getElementById('rentalDays');
+        rentalDays.innerHTML = `
+          <option value="1">1 dia - R$ ${basePrice.toFixed(2).replace('.', ',')}</option>
+          <option value="3">3 dias - R$ ${(basePrice * 1.5).toFixed(2).replace('.', ',')}</option>
+          <option value="7">7 dias - R$ ${(basePrice * 2).toFixed(2).replace('.', ',')}</option>
+        `;
+        
+        document.getElementById('purchaseModal').style.display = 'block';
+        document.getElementById('purchaseForm').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', function() {
+      document.getElementById('purchaseModal').style.display = 'none';
+    });
+
+    document.getElementById('confirmRental').addEventListener('click', function() {
+      const email = document.getElementById('userEmail').value;
+      const days = parseInt(document.getElementById('rentalDays').value);
+      
+      if (!currentMovie) return;
+      
+      const basePrice = parseFloat(currentMovie.dataset.price);
+      const priceMultipliers = { 1: 1.0, 3: 1.5, 7: 2.0 };
+      const totalPrice = basePrice * priceMultipliers[days];
+      
+      if (!email || !email.includes('@')) {
+        alert('Por favor, insira um e-mail válido!');
+        return;
+      }
+
+      document.getElementById('purchaseForm').style.display = 'none';
+      document.getElementById('successMessage').innerHTML = `
+        <h3>✅ Aluguel confirmado!</h3>
+        <p><strong>Filme:</strong> ${currentMovie.dataset.title}</p>
+        <p><strong>Período:</strong> ${days} dia(s)</p>
+        <p><strong>Total:</strong> R$ ${totalPrice.toFixed(2).replace('.', ',')}</p>
+        <p>O link de acesso foi enviado para:<br>${email}</p>
+      `;
+      document.getElementById('successMessage').style.display = 'block';
+
+      setTimeout(() => {
+        document.getElementById('purchaseModal').style.display = 'none';
+        document.getElementById('userEmail').value = '';
+      }, 3000);
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target === document.getElementById('purchaseModal')) {
+        document.getElementById('purchaseModal').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
+
